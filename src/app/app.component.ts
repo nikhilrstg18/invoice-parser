@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private title:string ='soPOC';
-  private marcoPoloCheetSheet:string=null;
-  private code:string = `
+  //@ states
+  //===============================================================
+  title:string ='soPOC';
+  marcoPoloCheetSheet:string=null;
+  code:string = `
     private _marcoPolo() {
       var cheetSheet = '';
       for (var i = 1; i <= 100; i++) {
@@ -30,10 +32,18 @@ export class AppComponent {
       return String(num);
     }`;
 
+  //@ Public Methods
+  //===============================================================
   marcoPoloHandler(){
     this._marcoPolo();
   }
 
+  setDefaults(){
+    this.marcoPoloCheetSheet= '';
+  }
+
+  //@ Private Methods
+  //===============================================================
   private _marcoPolo() {
     var cheetSheet = '';
     for (var i = 1; i <= 100; i++) {
@@ -54,9 +64,8 @@ export class AppComponent {
     }
     return String(num);
   }
-  private setDefaults(){
-    this.marcoPoloCheetSheet= '';
-  }
+
+
 
   
 }

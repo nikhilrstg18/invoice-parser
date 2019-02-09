@@ -8,15 +8,15 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class UserStory1Component implements OnInit {
 
-  //@ Private states
+  //@ states
   //===============================================================
-  private text: string;
-  private linesRead: string[];
-  private number: any[];
-  private parsedDigitsToLookup: any[];
-  private parsedInvoiceNumbers: any[];
-  private textFilePath:string;
-  private isParseCompleted:boolean;
+  text: string;
+  linesRead: string[];
+  number: any[];
+  parsedDigitsToLookup: any[];
+  parsedInvoiceNumbers: any[];
+  textFilePath:string;
+  isParseCompleted:boolean;
 
   //@ Constructor only for DI
   //===============================================================
@@ -40,6 +40,25 @@ export class UserStory1Component implements OnInit {
     // this.parsedInvoiceNumbers.forEach(invoice => {
     //   console.log(invoice);
     // });
+  }
+
+  generateTextFile(){
+    this.dataService.saveText(this.parsedInvoiceNumbers);
+  }
+
+  setDefaults(){
+    this.text = '';
+    this.linesRead = [];
+    this.number = [];
+    this.parsedDigitsToLookup = [];
+    this.parsedInvoiceNumbers = [];
+    this.isParseCompleted =false;
+    // hard coding filePath for simplicity
+    this.textFilePath = `assets/files/input_user_story_1.txt`;
+  }
+
+  isValid(invoice:string){
+    return invoice.indexOf('Invalid')>=0;
   }
  
 
@@ -90,9 +109,7 @@ export class UserStory1Component implements OnInit {
     );
   }
 
-  private generateTextFile(){
-    this.dataService.saveText(this.parsedInvoiceNumbers);
-  }
+
 
   private _getDigit(parsedLookup: string) {
     var num: string;
@@ -143,18 +160,5 @@ export class UserStory1Component implements OnInit {
     return digits;
   }
 
-  private setDefaults(){
-    this.text = '';
-    this.linesRead = [];
-    this.number = [];
-    this.parsedDigitsToLookup = [];
-    this.parsedInvoiceNumbers = [];
-    this.isParseCompleted =false;
-    // hard coding filePath for simplicity
-    this.textFilePath = `assets/files/input_user_story_1.txt`;
-  }
 
-  private isValid(invoice:string){
-    return invoice.indexOf('Invalid')>=0;
-  }
 }
