@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+
+<div class='marcopolo'>
+  <div>
+    <h2>Marco Polo Game</h2>
+  </div>
+  <h4>Solution Source Code</h4>
+  <pre class='marcopolo-source-code'>
+        {{code}}
+  </pre>
+  <button (click)='marcoPoloHandler()'>View Marcopolo Cheet Sheet</button>
+  <button (click)='setDefaults()'>Reset</button>
+  <div *ngIf='marcoPoloCheetSheet' class='marcopolo-solution'>
+    {{marcoPoloCheetSheet}}
+  </div>
+</div>
+
+<div>
+  <h2>User Story 1 - Parse invoice numbers</h2>
+  <user-story1></user-story1>
+</div>
+

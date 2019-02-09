@@ -1,0 +1,16 @@
+<div class="us-1">
+  <h4>Input Text File Location:
+    <span class='light'>
+      {{textFilePath}}
+    </span>
+  </h4>
+  <button (click)='parseInvoicesHandler()'>Parse Invoices</button>
+  <button *ngIf='isParseCompleted' (click)='generateTextFile()'>Generate Invoices</button>
+  <button (click)='setDefaults()'>Reset</button>
+    <div *ngIf='parsedInvoiceNumbers.length>0'class='text-align-center'>
+      <h4>Total Invoices Processed : {{parsedInvoiceNumbers?.length}}</h4>
+      <div *ngFor='let invoice of parsedInvoiceNumbers; let index'>
+        <p [ngClass]="{'invalid': isValid(invoice)}">Invoice Number : {{invoice}}</p>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.light{
+    font-weight: 300;
+}
+.text-align-center{
+    text-align: center;
+}
+.us-1{
+    min-height: 10rem;
+}
+.invalid{
+    color: red;
+}
