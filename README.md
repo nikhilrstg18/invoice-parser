@@ -55,25 +55,30 @@ Imports, declaration and provides are important properties of ngModules metaData
     You can think models as POJO in java and POCO in .net
     Main benefit to use models is intellisense that Typescript provides when data from serivce is mapped to the model
 
-## Marcopolo Demo - UI
-Marcopolo Demo - default screen
-![image](assets/img/marcopolo-1.PNG)
-Marcopolo Demo - cheetsheet generated
-Screen-2
-![image](assets/img/marcopolo-2.PNG)
+## Marcopolo Game - solution
 
+#### Source Code 
 
-## Parsing Invoice Numbers - UI
+ private _marcoPolo() {
+    var cheetSheet = '';
+    for (var i = 1; i <= 100; i++) {
+      cheetSheet += `${this._testSequence(i)},`;
+    }
+    this.marcoPoloCheetSheet = cheetSheet.substring(0, cheetSheet.length - 1);
+    console.log(cheetSheet); // output cheetSheet on console
+  }
+  
+  private _testSequence(num) {
+    if (num % 4==0 && num % 7 ==0) {
+      return 'marcopolo';
+    }
+    if (num % 4 == 0) {
+      return 'marco';
+    }
+    if (num % 7 == 0) {
+      return 'polo';
+    }
+    return String(num);
+  }
 
-Parsing Invoice Numbers- Default screen
-![image](assets/img/invoice-1.PNG)
-
-Parsing Invoice Numbers- result for valid raw data
-![image](assets/img/invoice-2.PNG)
-
-Parsing Invoice Numbers- generating output_user-story_1.txt
-![image](assets/img/invoice-3.PNG)
-
-Parsing Invoice Numbers- result for invalid raw data
-![image](assets/img/invoice-4.PNG)
 

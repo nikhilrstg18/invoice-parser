@@ -1,12 +1,68 @@
-.light{
-    font-weight: 300;
+.actions {
+    text-align: center;
+    margin: 1rem auto;
 }
-.text-align-center{
+.row{
+    margin: 0 auto;
+}
+.description {
+    text-align: justify;
+    padding: .5rem;
+    border-radius: 1rem;
+    margin: .5rem 1.5rem;
+}
+
+.description-bg {
+    background: white;
+    height: 52rem;
+    box-shadow: 3px 3px 6px rgba(0,0,0,.24);
+    overflow: auto;
+}
+p, pre{
+    margin-bottom: .25rem;
+}
+
+code {
+    word-break: break-all;
+}
+
+.themecolor {
+    border-color: darkcyan;
+    color: darkcyan;
+}
+
+.themecolor:hover {
+    background: darkcyan;
+    border-color: darkcyan;
+    color: #fafafa;
+}
+
+.light {
+    font-weight: 300;
+    padding: 0 1rem 0 0;
+}
+
+.text-align-center {
     text-align: center;
 }
-.us-1{
+
+.us-1 {
     min-height: 10rem;
 }
-.invalid{
+
+.us-1 p {
+    padding: 0 1.5rem;
+}
+
+
+.us-1 h4 {
+    text-align: center;
+}
+
+.invalid {
     color: red;
+}
+.btn:focus{
+    outline: none;
+    box-shadow: none;
 }

@@ -50,6 +50,7 @@ export class AppComponent {
       cheetSheet += `${this._testSequence(i)},`;
     }
     this.marcoPoloCheetSheet = cheetSheet.substring(0, cheetSheet.length - 1);
+    console.log(cheetSheet);
   }
   
   private _testSequence(num) {

@@ -1,16 +1,102 @@
 <div class="us-1">
-  <h4>Input Text File Location:
-    <span class='light'>
-      {{textFilePath}}
-    </span>
-  </h4>
-  <button (click)='parseInvoicesHandler()'>Parse Invoices</button>
-  <button *ngIf='isParseCompleted' (click)='generateTextFile()'>Generate Invoices</button>
-  <button (click)='setDefaults()'>Reset</button>
-    <div *ngIf='parsedInvoiceNumbers.length>0'class='text-align-center'>
-      <h4>Total Invoices Processed : {{parsedInvoiceNumbers?.length}}</h4>
-      <div *ngFor='let invoice of parsedInvoiceNumbers; let index'>
-        <p [ngClass]="{'invalid': isValid(invoice)}">Invoice Number : {{invoice}}</p>
+  <div class="actions">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="validFile" id="validFile" value="0"
+        (change)='validFileHandler(0)' checked>
+      <label class="form-check-label" for="validFile">Valid input file</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="validFile" id="validFile" value="1"
+        (change)='validFileHandler(1)'>
+      <label class="form-check-label" for="invalidFile">Invalid input file</label>
+    </div>
+
+
+    <h6>Input Text File Location:
+      <span class='light'>
+        {{textFilePath}}
+      </span>
+      <a class='btn btn-sm btn-outline-info themecolor' target='_self' [href]="textFilePath"
+        download="raw_input_invoices.txt">
+        View Input File
+      </a>
+    </h6>
+
+  </div>
+
+  <div class="row">
+    <!-- Description -->
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="description">
+        <h4>How invoice parser helps </h4>
+        <p><strong>Input : </strong> <code>raw_invoices_from_old_system.txt</code></p>
+        <ul>
+          <li>
+            <p>A text file containing several hundreds of invoice numbers in the following
+              form:</p>
+            <pre>
+                <code>      
+                  _  _     _  _  _  _  _  (line 1)
+                | _| _||_||_ |_   ||_||_| (line 2)
+                ||_  _|  | _||_|  ||_| _| (line 3)
+                                          (line 4)
+                  _  _  _  _  _  _     _  (line 5)
+              |_||_|| ||_||_   |  |  ||_  (line 6)
+                | _||_||_||_|  |  |  | _| (line 7)
+                                          (line 8)
+                </code>
+              </pre>
+            <p> <strong>Invoice number format:</strong></p>
+            <ul>
+              <li>Each invoice number is constructed of 9 digits [0..9]</li>
+              <li>Invoice number is written using _ and | characters.</li>
+              <li>Invoice number input takes 4 lines.</li>
+              <li>The first 3 lines contain 27 characters.</li>
+              <li>The fourth line is blank.</li>
+            </ul>
+            <p> <strong>Note:</strong> You can use <code>raw_invoices_from_old_system.txt</code> to feed invoice-parser.
+            </p>
+          </li>
+        </ul>
+        <p><strong>Output : </strong> <code>parsed_invoices.txt</code></p>
+        <ul>
+          <li>
+            <p>A text file with the parsed invoice numbers. One number per row.</p>
+            <p> Example:</p>
+            <pre>
+                <code>  
+                123456789
+                490867715
+                </code>
+              </pre>
+            <p> <strong>Note:</strong> after parsing invoices and verifying on UI, you can export parsed invoices as
+              <code>parsed_invoices.txt</code>.</p>
+          </li>
+        </ul>
       </div>
     </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="description">
+        <div class="text-align-center">
+          <div class="btn-group">
+            <button class='btn btn-outline-info themecolor' (click)='parseInvoicesHandler()'>Parse Invoices</button>
+            <button class='btn btn-outline-info themecolor' *ngIf='isParseCompleted' (click)='generateTextFile()'>Export
+              Invoices</button>
+            <button class='btn btn-outline-info themecolor' (click)='setDefaults()'>Reset</button>
+          </div>
+        </div>
+        <div class="description description-bg">
+          <div *ngIf='parsedInvoiceNumbers.length>0;else notParsed' class='text-align-center'>
+            <h4>Total Invoices Processed : {{parsedInvoiceNumbers?.length}}</h4>
+            <div *ngFor='let invoice of parsedInvoiceNumbers; let index'>
+              <p [ngClass]="{'invalid': isValid(invoice)}">Invoice Number : {{invoice}}</p>
+            </div>
+          </div>
+          <ng-template #notParsed>
+            <h4>Invoices will be displayed here after parsing.</h4>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

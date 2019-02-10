@@ -1,7 +1,35 @@
-.marcopolo{
-    background-color: #f5f5f5;
-    word-break: break-all;
+.header {
+    font-family: 'Great Vibes', cursive;
+    margin: 1rem auto;
+    color: darkcyan;
 }
-.marcopolo-sorce-code{
-    background-color: #fafafa;
+
+.horizon {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8b8b inset;
+    margin: .2rem;
+}
+
+.created-by {
+    line-height: 1.4rem;
+    padding: 0;
+    font-size: 1.125rem;
+    font-family: monospace;
+    font-weight: bold;
+    margin: 0;
+}
+
+.icon {
+    vertical-align: middle;
+    color: darkgrey;
+    font-size: 1.2rem;
+    margin: 0 .6rem;
+}
+
+.icon:hover {
+    color: lightgray;
+}
+.footer{
+    text-align: center;
 }

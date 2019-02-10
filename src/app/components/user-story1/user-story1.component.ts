@@ -17,6 +17,8 @@ export class UserStory1Component implements OnInit {
   parsedInvoiceNumbers: any[];
   textFilePath:string;
   isParseCompleted:boolean;
+  files:string[];
+  validFile:number;
 
   //@ Constructor only for DI
   //===============================================================
@@ -48,17 +50,22 @@ export class UserStory1Component implements OnInit {
 
   setDefaults(){
     this.text = '';
+    this.validFile = 0;
     this.linesRead = [];
     this.number = [];
     this.parsedDigitsToLookup = [];
     this.parsedInvoiceNumbers = [];
     this.isParseCompleted =false;
-    // hard coding filePath for simplicity
-    this.textFilePath = `assets/files/input_user_story_1.txt`;
+    this.files= [`assets/files/raw_invoices_from_old_system.txt`, `assets/files/raw_invoices_from_old_system-invalid.txt`]
+    this.validFileHandler(this.validFile);
   }
 
   isValid(invoice:string){
     return invoice.indexOf('Invalid')>=0;
+  }
+
+  validFileHandler(value:number){
+    this.textFilePath = this.files[value];
   }
  
 
