@@ -36,14 +36,14 @@
               form:</p>
             <pre>
                 <code>      
-                  _  _     _  _  _  _  _  (line 1)
-                | _| _||_||_ |_   ||_||_| (line 2)
-                ||_  _|  | _||_|  ||_| _| (line 3)
-                                          (line 4)
-                  _  _  _  _  _  _     _  (line 5)
-              |_||_|| ||_||_   |  |  ||_  (line 6)
-                | _||_||_||_|  |  |  | _| (line 7)
-                                          (line 8)
+    _  _     _  _  _  _  _  (line 1)
+  | _| _||_||_ |_   ||_||_| (line 2)
+  ||_  _|  | _||_|  ||_| _| (line 3)
+                            (line 4)
+    _  _  _  _  _  _     _  (line 5)
+|_||_|| ||_||_   |  |  ||_  (line 6)
+  | _||_||_||_|  |  |  | _| (line 7)
+                            (line 8)
                 </code>
               </pre>
             <p> <strong>Invoice number format:</strong></p>
@@ -65,8 +65,8 @@
             <p> Example:</p>
             <pre>
                 <code>  
-                123456789
-                490867715
+123456789
+490867715
                 </code>
               </pre>
             <p> <strong>Note:</strong> after parsing invoices and verifying on UI, you can export parsed invoices as
@@ -79,10 +79,10 @@
       <div class="description">
         <div class="text-align-center">
           <div class="btn-group">
-            <button class='btn btn-outline-info themecolor' (click)='parseInvoicesHandler()'>Parse Invoices</button>
-            <button class='btn btn-outline-info themecolor' *ngIf='isParseCompleted' (click)='generateTextFile()'>Export
+            <button class='btn btn-sm btn-outline-info themecolor' (click)='parseInvoicesHandler()'>Parse Invoices</button>
+            <button class='btn btn-sm btn-outline-info themecolor' *ngIf='isParseCompleted' (click)='generateTextFile()'>Export
               Invoices</button>
-            <button class='btn btn-outline-info themecolor' (click)='setDefaults()'>Reset</button>
+            <button class='btn btn-sm btn-outline-info themecolor' (click)='setDefaults()'>Reset</button>
           </div>
         </div>
         <div class="description description-bg">

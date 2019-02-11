@@ -20,7 +20,7 @@ Imports, declaration and provides are important properties of ngModules metaData
 	ii. An injector creates dependencies, and maintains a container of dependency instances that it reuses if possible.
 	iii. A provider is an object that tell an injector how to obtain or create a dependency.
 		
-	Step1 : Indicate dependency to angular in constructor of the component  as below
+	  Step1 : Indicate dependency to angular in constructor of the component  as below
         …
         constructor(private dataService: DataService) { }
         …
